@@ -26,6 +26,13 @@
           config = "${pkgs.git}/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME";
           configui = "${pkgs.gitui}/bin/gitui -d $HOME/.cfg -w $HOME";
       };
+
+      file = {
+        bin = {
+          source = ./. + "/bin";
+          target = "bin";
+        };
+      };
   };
 
   # Copy over the gitui config files
