@@ -7,6 +7,8 @@
       ./git.nix
       ./tmux.nix
       ./zsh.nix
+      
+      # ./i3/i3.nix
   ];
   home = {
       stateVersion = "23.11";
@@ -36,14 +38,16 @@
   };
 
   # Copy over the gitui config files
-  xdg.configFile = {
-    gitui = {
-      source = ./. + "/gitui";
-    };
+  xdg = {
+    configFile = {
+      gitui = {
+        source = ./. + "/gitui";
+      };
 
-    starship = {
-      source = ./. + "/starship.toml";
-      target = "starship.toml";
+      starship = {
+        source = ./. + "/starship.toml";
+        target = "starship.toml";
+      };
     };
   };
 

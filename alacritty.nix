@@ -16,7 +16,7 @@
       };
 
       font = {
-        normal.family = "JetbrainsMono Nerd Font";
+        normal.family = "MesloLgm Nerd Font Mono";
         size = 10.0;
       };
 
