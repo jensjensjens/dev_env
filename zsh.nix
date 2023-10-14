@@ -7,10 +7,7 @@
         enableVteIntegration = true;
         defaultKeymap = "viins";
         dotDir = ".config/zsh";
-        syntaxHighlighting = {
-          enable = true;
-        };
-
+        enableSyntaxHighlighting = true;
         history = {
             share = true;
         };

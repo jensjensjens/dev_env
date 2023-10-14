@@ -7,11 +7,11 @@
       ./git.nix
       ./tmux.nix
       ./zsh.nix
-      
+
       # ./i3/i3.nix
   ];
   home = {
-      stateVersion = "23.11";
+      stateVersion = "23.05";
       username = builtins.getEnv "USER";
       homeDirectory = builtins.getEnv "HOME";
 
@@ -24,7 +24,7 @@
 
       shellAliases = {
           watch = "${pkgs.viddy}/bin/viddy";
-	        tree = "${pkgs.eza}/bin/exa --all --tree --ignore-glob '__pycache__|node_modules|.git|venv|obj' --icons --sort type";
+	        tree = "${pkgs.exa}/bin/exa --all --tree --ignore-glob '__pycache__|node_modules|.git|venv|obj' --icons --sort type";
           config = "${pkgs.git}/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME";
           configui = "${pkgs.gitui}/bin/gitui -d $HOME/.cfg -w $HOME";
       };
@@ -37,7 +37,6 @@
       };
   };
 
-  # Copy over the gitui config files
   xdg = {
     configFile = {
       gitui = {
@@ -90,7 +89,7 @@
       };
     };
 
-    eza = {
+    exa = {
       enable = true;
       enableAliases = true;
       git = true;
