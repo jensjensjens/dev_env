@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
+{ unstable, config, pkgs, ... }:
 
+let
+  unstable = import <nixos-unstable> {};
+in
 {
   imports = [
       ./packages.nix
@@ -75,6 +78,7 @@
       defaultEditor = true;
       vimAlias = true;
       vimdiffAlias = true;
+      package = unstable.neovim-unwrapped;
     };
 
     starship = {

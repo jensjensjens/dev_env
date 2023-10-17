@@ -1,23 +1,19 @@
 { pkgs, ... }:
-
+let
+  unstable = import <nixos-unstable> {};
+in
 {
   home.packages = [
     pkgs.docker-credential-helpers
-    pkgs.azure-cli
     pkgs.fd
-    pkgs.fluxcd
     pkgs.gcc
-    pkgs.gitui
     pkgs.go
-    pkgs.kubernetes-helm
-    pkgs.kubectl
     pkgs.httpie
     pkgs.jq
     pkgs.nixfmt
     pkgs.nodejs
     pkgs.page
     pkgs.powershell
-    pkgs.pulumi
     pkgs.python311
     pkgs.ranger
     pkgs.ripgrep
@@ -32,5 +28,11 @@
     pkgs.xplr
     pkgs.yq
     pkgs.zellij
+    unstable.azure-cli
+    unstable.fluxcd
+    unstable.gitui
+    unstable.kubectl
+    unstable.kubernetes-helm
+    unstable.pulumi
   ];
 }
