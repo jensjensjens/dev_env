@@ -16,6 +16,11 @@
         log-new = "log main..HEAD";
         log-old = "log HEAD..main";
       };
+      includes = [
+          {
+            path = "~/.config/git/config-work";
+          }
+      ];
       extraConfig = {
         user = {
           signingkey = "~/.ssh/github-personal.pub";
