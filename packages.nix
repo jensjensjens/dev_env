@@ -7,7 +7,6 @@ in
     pkgs.docker-credential-helpers
     pkgs.fd
     pkgs.gcc
-    pkgs.go
     pkgs.httpie
     pkgs.jq
     pkgs.nixfmt
@@ -28,6 +27,7 @@ in
     pkgs.xplr
     pkgs.yq
     pkgs.zellij
+    unstable.go_1_21
     unstable.azure-cli
     unstable.fluxcd
     unstable.gitui
