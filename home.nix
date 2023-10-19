@@ -2,17 +2,26 @@
 
 let
   unstable = import <nixos-unstable> {};
-in
-{
-  imports = [
+  osIsLinux = (builtins.getEnv "OSTYPE") == "linux-gnu";
+  defaultImports = [
       ./packages.nix
       ./alacritty.nix
       ./git.nix
-      ./tmux.nix
       ./zsh.nix
-
-      # ./i3/i3.nix
+      ./tmux.nix
   ];
+
+  imports = if osIsLinux 
+    then 
+      defaultImports ++ [ 
+        ./sway/sway.nix 
+      ]
+    else 
+      defaultImports ++ [];
+in
+{
+  imports = imports;
+
   home = {
       stateVersion = "23.05";
       username = builtins.getEnv "USER";
