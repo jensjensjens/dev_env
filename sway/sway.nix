@@ -2,7 +2,8 @@
 
 {
   imports = [
-    ../rofi/rofi.nix 
+    #../rofi/rofi.nix 
+    ../wofi/wofi.nix 
     ../waybar/waybar.nix 
   ];
 

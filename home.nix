@@ -1,23 +1,19 @@
-{ unstable, config, pkgs, ... }:
+{ unstable, config, pkgs, lib, ... }:
 
 let
   unstable = import <nixos-unstable> {};
-  osIsLinux = (builtins.getEnv "OSTYPE") == "linux-gnu";
+  isMacOs = builtins.getEnv "IS_MAC_OS";
   defaultImports = [
-      ./packages.nix
-      ./alacritty.nix
-      ./git.nix
-      ./zsh.nix
-      ./tmux.nix
+    ./packages.nix
+    ./alacritty.nix
+    ./git.nix
+    ./zsh.nix
+    ./tmux.nix
   ];
-
-  imports = if osIsLinux 
-    then 
-      defaultImports ++ [ 
-        ./sway/sway.nix 
-      ]
-    else 
-      defaultImports ++ [];
+  imports = if isMacOs != "1" then defaultImports ++ [
+    ./sway/sway.nix
+    ./virt-manager/virt-manager.nix
+  ] else defaultImports;
 in
 {
   imports = imports;

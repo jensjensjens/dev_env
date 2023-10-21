@@ -4,9 +4,12 @@ let
 in
 {
   home.packages = [
+    pkgs.cargo
     pkgs.docker-credential-helpers
     pkgs.fd
     pkgs.gcc
+    pkgs.gnome.nautilus
+    pkgs.htop
     pkgs.httpie
     pkgs.jq
     pkgs.nixfmt
@@ -27,6 +30,7 @@ in
     pkgs.xplr
     pkgs.yq
     pkgs.zellij
+
     unstable.go_1_21
     unstable.azure-cli
     unstable.fluxcd
