@@ -8,9 +8,9 @@
       window = {
         title = "Terminal";
 
-        padding = { 
-            y = 10;
-            x = 5;
+        padding = {
+          y = 10;
+          x = 5;
         };
         dimensions = {
           lines = 75;

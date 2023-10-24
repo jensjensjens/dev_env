@@ -3,65 +3,31 @@ exec kanshi
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec_always nm-applet --indicator
 
-### Variables
-set $mod Mod4
+# Sway notification centre
+exec swaync
+bindsym $mod+Shift+n exec swaync-client -t -sw
 
-# Home row direction keys, like vim
-set $left h
-set $down j
-set $up k
-set $right l
-
-gaps inner 5
-gaps top 0
-gaps left 2
-gaps right 2
-gaps bottom 2
-
-set $term alacritty
-set $menu wofi -I -S drun
-
-### Output configuration
-output * bg "~/.config/sway/background.jpg" fill
-
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
+# set $menu wofi -I -S drun
+bindsym $mod+d exec "pgrep -x wofi >/dev/null 2>&1 && killall wofi || wofi --dmenu --show drun"
 
 ### Idle configuration
 exec swayidle -w \
-    timeout 300 'swaylock -f -c 000000' \
-    timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-    before-sleep 'swaylock -f -c 000000'
+         timeout 300 'swaylock -f -c 000000' \
+         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+         before-sleep 'swaylock -f -c 000000'
 
-set $laptop eDP-1
 bindswitch lid:on output $laptop disable
 bindswitch lid:off output $laptop enable
 
-### Input configuration
-#### You can get the names of your inputs by running: swaymsg -t get_inputs
-#### Improve touchpad on dell xps
-input "1739:31251:DLL06E4:01_06CB:7A13_Touchpad" {
-    dwt enabled
-    tap enabled
-    natural_scroll enabled
-    middle_emulation enabled
-}
+bindsym $mod+escape exec swaylock -f
 
-### Key bindings
-#
-# Basics:
-#
-    # Start a terminal
     bindsym $mod+Return exec $term
 
     # Kill focused window
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-    bindsym $mod+d exec $menu
+    # bindsym $mod+d exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.

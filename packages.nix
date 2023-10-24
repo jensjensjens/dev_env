@@ -1,8 +1,6 @@
 { pkgs, ... }:
-let
-  unstable = import <nixos-unstable> {};
-in
-{
+let unstable = import <nixos-unstable> { };
+in {
   home.packages = [
     pkgs.cargo
     pkgs.docker-credential-helpers

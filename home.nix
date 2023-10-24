@@ -1,55 +1,48 @@
 { unstable, config, pkgs, lib, ... }:
 
 let
-  unstable = import <nixos-unstable> {};
+  unstable = import <nixos-unstable> { };
   isMacOs = builtins.getEnv "IS_MAC_OS";
-  defaultImports = [
-    ./packages.nix
-    ./alacritty.nix
-    ./git.nix
-    ./zsh.nix
-    ./tmux.nix
-  ];
-  imports = if isMacOs != "1" then defaultImports ++ [
-    ./sway/sway.nix
-    ./virt-manager/virt-manager.nix
-  ] else defaultImports;
-in
-{
+  defaultImports =
+    [ ./packages.nix ./alacritty.nix ./git.nix ./zsh.nix ./tmux.nix ];
+  imports = if isMacOs != "1" then
+    defaultImports ++ [ ./sway.nix ./virt-manager/virt-manager.nix ]
+  else
+    defaultImports;
+in {
   imports = imports;
 
   home = {
-      stateVersion = "23.05";
-      username = builtins.getEnv "USER";
-      homeDirectory = builtins.getEnv "HOME";
+    stateVersion = "23.05";
+    username = builtins.getEnv "USER";
+    homeDirectory = builtins.getEnv "HOME";
 
-      sessionVariables = {
-          DOCKER_BUILDKIT = 1;
-          MANPAGER = "page -t man";
-          PAGER = "page";
-          PULUMI_SKIP_UPDATE_CHECK = "true";
-      };
+    sessionVariables = {
+      DOCKER_BUILDKIT = 1;
+      MANPAGER = "page -t man";
+      PAGER = "page";
+      PULUMI_SKIP_UPDATE_CHECK = "true";
+    };
 
-      shellAliases = {
-          watch = "${pkgs.viddy}/bin/viddy";
-	        tree = "${pkgs.exa}/bin/exa --all --tree --ignore-glob '__pycache__|node_modules|.git|venv|obj' --icons --sort type";
-          config = "${pkgs.git}/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME";
-          configui = "${pkgs.gitui}/bin/gitui -d $HOME/.cfg -w $HOME";
-      };
+    shellAliases = {
+      watch = "${pkgs.viddy}/bin/viddy";
+      tree =
+        "${pkgs.exa}/bin/exa --all --tree --ignore-glob '__pycache__|node_modules|.git|venv|obj' --icons --sort type";
+      config = "${pkgs.git}/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME";
+      configui = "${pkgs.gitui}/bin/gitui -d $HOME/.cfg -w $HOME";
+    };
 
-      file = {
-        bin = {
-          source = ./. + "/bin";
-          target = "bin";
-        };
+    file = {
+      bin = {
+        source = ./. + "/bin";
+        target = "bin";
       };
+    };
   };
 
   xdg = {
     configFile = {
-      gitui = {
-        source = ./. + "/gitui";
-      };
+      gitui = { source = ./. + "/gitui"; };
 
       starship = {
         source = ./. + "/starship.toml";
@@ -65,17 +58,13 @@ in
       enableBashIntegration = true;
       tmux = {
         enableShellIntegration = true;
-        shellIntegrationOptions = [
-          "-p 80%,60%"
-        ];
+        shellIntegrationOptions = [ "-p 80%,60%" ];
       };
     };
 
     gh = {
       enable = true;
-      settings = {
-        git_protocol = "ssh";
-      };
+      settings = { git_protocol = "ssh"; };
     };
 
     neovim = {
@@ -93,9 +82,7 @@ in
 
     bat = {
       enable = true;
-      config = {
-        theme = "zenburn";
-      };
+      config = { theme = "zenburn"; };
     };
 
     exa = {
@@ -105,13 +92,18 @@ in
       icons = true;
     };
 
-    k9s = {
-      enable = true;
-    };
+    k9s = { enable = true; };
+
+    # ssh = {
+    #     enable = true;
+    #     matchBlocks = {
+    #         "*" = {
+    #             identityAgent = "~/.1password/agent.sock";
+    #         };
+    #     };
+    # };
 
     # Let Home Manager install and manage itself.
-    home-manager = {
-      enable = true;
-    };
+    home-manager = { enable = true; };
   };
 }
