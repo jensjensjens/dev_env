@@ -5,10 +5,10 @@ SHELL ["/bin/bash", "-c", "-o", "pipefail"]
 ENV TZ=Europe/Stockholm
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN useradd --create-home --shell /bin/bash jens.sigvardsson && \
-    usermod -aG sudo jens.sigvardsson && \
+RUN useradd --create-home --shell /bin/bash jenss && \
+    usermod -aG sudo jenss && \
     mkdir -m 0755 /nix && \
-    chown jens.sigvardsson /nix
+    chown jenss /nix
 
 RUN apt-get update && apt-get install -y \
     curl \
@@ -16,12 +16,16 @@ RUN apt-get update && apt-get install -y \
     git \
     && rm -rf /var/lib/apt/lists/*
 
-USER jens.sigvardsson
-ENV USER=jens.sigvardsson
-ENV NIX_PATH=${NIX_PATH:+$NIX_PATH:}/home/jens.sigvardsson/.nix-defexpr/channels:/nix/var/nix/profiles/per-user/root/channels
-ENV PATH="${PATH}:/home/jens.sigvardsson/.nix-profile/bin"
+RUN mkdir -p /etc/nix && \
+    echo "experimental-features = nix-command flakes" >> /etc/nix/nix.conf
 
-WORKDIR /home/jens.sigvardsson
+USER jenss
+ENV USER=jenss
+ENV NIX_PATH=${NIX_PATH:+$NIX_PATH:}/home/jenss/.nix-defexpr/channels:/nix/var/nix/profiles/per-user/root/channels
+ENV PATH="${PATH}:/home/jenss/.nix-profile/bin"
+
+WORKDIR /home/jenss
+
 
 RUN sh <(curl -L https://nixos.org/nix/install) --no-daemon
 

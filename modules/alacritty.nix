@@ -19,7 +19,7 @@
       };
 
       font = {
-        normal.family = "MesloLgm Nerd Font Mono";
+        normal.family = "MesloLgs NF";
         size = 13.0;
       };
 

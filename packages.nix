@@ -1,40 +1,40 @@
 { pkgs, ... }:
-let unstable = import <nixos-unstable> { };
+let 
 in {
-  home.packages = [
-    pkgs.cargo
-    pkgs.docker-credential-helpers
-    pkgs.fd
-    pkgs.gcc
-    pkgs.gnome.nautilus
-    pkgs.htop
-    pkgs.httpie
-    pkgs.jq
-    pkgs.nixfmt
-    pkgs.nodejs
-    pkgs.page
-    pkgs.powershell
-    pkgs.python311
-    pkgs.ranger
-    pkgs.ripgrep
-    pkgs.slides
-    pkgs.sops
-    pkgs.statix
-    pkgs.tree-sitter
-    pkgs.unzip
-    pkgs.viddy
-    pkgs.wget
-    pkgs.xclip
-    pkgs.xplr
-    pkgs.yq
-    pkgs.zellij
-
-    unstable.go_1_21
-    unstable.azure-cli
-    unstable.fluxcd
-    unstable.gitui
-    unstable.kubectl
-    unstable.kubernetes-helm
-    unstable.pulumi
+  home.packages = with pkgs; [
+    cargo
+    docker-credential-helpers
+    fd
+    fluxcd
+    fx
+    gcc
+    gitui
+    go_1_21
+    htop
+    httpie
+    jq
+    kubectl
+    kubelogin
+    kubernetes-helm
+    lf
+    meslo-lgs-nf
+    nixfmt
+    nodejs
+    page
+    powershell
+    python311
+    ranger
+    ripgrep
+    slides
+    sops
+    statix
+    tree-sitter
+    unzip
+    viddy
+    wget
+    xclip
+    xplr
+    yq
+    zellij
   ];
 }
