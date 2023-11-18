@@ -11,7 +11,7 @@
         sessionVariables = {
             DOCKER_BUILDKIT = 1;
             MANPAGER = "page -t man";
-            PAGER = "page";
+            PAGER = "less";
             PULUMI_SKIP_UPDATE_CHECK = "true";
         };
 
