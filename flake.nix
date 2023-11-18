@@ -24,6 +24,7 @@
             ./modules/alacritty.nix 
             ./modules/bat.nix
             ./modules/bin.nix
+            ./modules/editorconfig.nix
             ./modules/eza.nix
             ./modules/fzf.nix
             ./modules/gh.nix
@@ -38,9 +39,6 @@
             ./modules/virt-manager.nix
             ./modules/zsh.nix 
         ];
-
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
       };
     };
 }
