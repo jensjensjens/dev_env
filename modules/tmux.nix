@@ -37,10 +37,10 @@
         unbind Right
         unbind Up
         unbind Down
-        bind-key H resize-pane -L 2
-        bind-key L resize-pane -R 2
-        bind-key K resize-pane -U 2
-        bind-key J resize-pane -D 2
+        bind-key -r H resize-pane -L 2
+        bind-key -r L resize-pane -R 2
+        bind-key -r K resize-pane -U 2
+        bind-key -r J resize-pane -D 2
 
         # config keybindings
         bind-key r source-file ~/.config/tmux/tmux.conf \; display-message "Reloaded tmux configuration"
