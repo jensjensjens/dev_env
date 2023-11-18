@@ -1,7 +1,8 @@
 { pkgs, ... }:
-let 
-in {
+
+{
   home.packages = with pkgs; [
+    awscli2
     cargo
     docker-credential-helpers
     fd
