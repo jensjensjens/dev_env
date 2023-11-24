@@ -33,7 +33,7 @@
     unzip
     viddy
     wget
-    xclip
+    wl-clipboard
     xplr
     yq
     zellij
