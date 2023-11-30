@@ -5,6 +5,7 @@
     awscli2
     cargo
     docker-credential-helpers
+    eksctl
     fd
     fluxcd
     fx
