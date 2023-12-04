@@ -25,6 +25,7 @@
     page
     powershell
     python311
+    python311Packages.pip
     ranger
     ripgrep
     slides
