@@ -22,6 +22,7 @@
     meslo-lgs-nf
     nixfmt
     nodejs
+    packer
     page
     powershell
     python311
