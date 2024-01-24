@@ -12,6 +12,7 @@
     terminal = "screen-256color";
     extraConfig = ''
         set-option -sa terminal-features ',alacritty:RGB'
+
         # Make sure new windows and panes are in current directory bind c new-window -c "#{pane_current_path}"
         bind '"' split-window -c "#{pane_current_path}"
         bind % split-window -h -c "#{pane_current_path}"
@@ -64,6 +65,9 @@
 
         # Open k9s to be able to perform file system operations
         bind-key T display-popup -d "#{pane_current_path}" -h 75% -w 75% -E "k9s"
+
+        # Open k9s to be able to perform file system operations
+        bind-key N display-popup -d "#{pane_current_path}" -h 75% -w 75% -E "${pkgs.neovim}/bin/nvim ${config.home.homeDirectory}/Documents/todo.md"
 
         bind-key K display-popup -d "#{pane_current_path}" -h 75% -w 75% -E "tmux-change-kubernetes-context"
         # Needed for Neovim to reload buffers on change
