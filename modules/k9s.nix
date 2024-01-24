@@ -5,10 +5,166 @@
         enable = true;
     };
 
-    xdg.configFile.k9s-plugins = {
-        target = "k9s/plugin.yml";
+    #xdg.configFile.k9s-config = {
+    #    target = "k9s/config.yaml";
+    #    text = ''
+    #        k9s:
+    #          liveViewAutoRefresh: false
+    #          screenDumpDir: /home/jenss/.local/state/k9s/screen-dumps
+    #          refreshRate: 2
+    #          maxConnRetry: 5
+    #          readOnly: false
+    #          noExitOnCtrlC: false
+    #          ui:
+    #            enableMouse: false
+    #            headless: false
+    #            logoless: false
+    #            crumbsless: false
+    #            noIcons: false
+    #          skipLatestRevCheck: false
+    #          disablePodCounting: false
+    #          shellPod:
+    #            image: busybox:1.35.0
+    #            namespace: default
+    #            limits:
+    #              cpu: 100m
+    #              memory: 100Mi
+    #          imageScans:
+    #            enable: false
+    #            exclusions:
+    #              namespaces: []
+    #              labels: {}
+    #          logger:
+    #            tail: 100
+    #            buffer: 5000
+    #            sinceSeconds: -1
+    #            fullScreenLogs: false
+    #            textWrap: false
+    #            showTime: false
+    #          thresholds:
+    #            cpu:
+    #              critical: 90
+    #              warn: 70
+    #            memory:
+    #              critical: 90
+    #              warn: 70
+    #    '';
+    #};
+
+    xdg.configFile.k9s-gruvbox-skin = {
+        target = "k9s/skins/gruvbox.yaml";
         text = ''
-            plugin:
+            # -----------------------------------------------------------------------------
+            # K9s Gruvbox Dark Skin
+            # Author: [@indiebrain](https://github.com/indiebrain)
+            # -----------------------------------------------------------------------------
+
+            # Styles...
+            foreground: &foreground "#ebdbb2"
+            background: &background "#272727"
+            current_line: &current_line "#ebdbb2"
+            selection: &selection "#3c3735"
+            comment: &comment "#bdad93"
+            cyan: &cyan "#689d69"
+            green: &green "#989719"
+            orange: &orange "#d79920"
+            magenta: &magenta "#b16185"
+            blue: &blue "#448488"
+            red: &red "#cc231c"
+
+            k9s:
+              body:
+                fgColor: *foreground
+                bgColor: *background
+                logoColor: *blue
+              prompt:
+                fgColor: *foreground
+                bgColor: *background
+                suggestColor: *orange
+              info:
+                fgColor: *magenta
+                sectionColor: *foreground
+              help:
+                fgColor: *foreground
+                bgColor: *background
+                keyColor: *magenta
+                numKeyColor: *blue
+                sectionColor: *green
+              dialog:
+                fgColor: *foreground
+                bgColor: *background
+                buttonFgColor: *foreground
+                buttonBgColor: *magenta
+                buttonFocusFgColor: white
+                buttonFocusBgColor: *cyan
+                labelFgColor: *orange
+                fieldFgColor: *foreground
+              frame:
+                border:
+                  fgColor: *selection
+                  focusColor: *current_line
+                menu:
+                  fgColor: *foreground
+                  keyColor: *magenta
+                  numKeyColor: *magenta
+                crumbs:
+                  fgColor: *foreground
+                  bgColor: *comment
+                  activeColor: *blue
+                status:
+                  newColor: *cyan
+                  modifyColor: *blue
+                  addColor: *green
+                  errorColor: *red
+                  highlightColor: *orange
+                  killColor: *comment
+                  completedColor: *comment
+                title:
+                  fgColor: *foreground
+                  bgColor: *background
+                  highlightColor: *orange
+                  counterColor: *blue
+                  filterColor: *magenta
+              views:
+                charts:
+                  bgColor: background
+                  defaultDialColors:
+                    - *blue
+                    - *red
+                  defaultChartColors:
+                    - *blue
+                    - *red
+                table:
+                  fgColor: *foreground
+                  bgColor: *background
+                  cursorFgColor: "#fff"
+                  cursorBgColor: *current_line
+                  header:
+                    fgColor: *foreground
+                    bgColor: *background
+                    sorterColor: *selection
+                xray:
+                  fgColor: *foreground
+                  bgColor: *background
+                  cursorColor: *current_line
+                  graphicColor: *blue
+                  showIcons: false
+                yaml:
+                  keyColor: *magenta
+                  colonColor: *blue
+                  valueColor: *foreground
+                logs:
+                  fgColor: *foreground
+                  bgColor: *background
+                  indicator:
+                    fgColor: *foreground
+                    bgColor: *background
+        '';
+    };
+    xdg.configFile.k9s-plugins = {
+        target = "k9s/plugins.yaml";
+        text = ''
+            plugins:
               toggle-helmrelease:
                 shortCut: Shift-T
                 confirm: true
