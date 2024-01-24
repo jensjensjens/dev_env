@@ -11,6 +11,7 @@
     shell = "${pkgs.zsh}/bin/zsh";
     terminal = "screen-256color";
     extraConfig = ''
+        set-option -sa terminal-features ',alacritty:RGB'
         # Make sure new windows and panes are in current directory bind c new-window -c "#{pane_current_path}"
         bind '"' split-window -c "#{pane_current_path}"
         bind % split-window -h -c "#{pane_current_path}"
@@ -72,6 +73,9 @@
         set -s escape-time 0
     '';
 
-    plugins = with pkgs; [ tmuxPlugins.yank tmuxPlugins.gruvbox ];
+    plugins = with pkgs; [ 
+        tmuxPlugins.yank 
+        tmuxPlugins.gruvbox 
+    ];
   };
 }
