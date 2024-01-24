@@ -23,7 +23,7 @@
         size = 13.0;
       };
 
-      shell = { program = "${pkgs.tmux}/bin/tmux"; };
+      shell = { program = "${pkgs.zsh}/bin/zsh"; };
     };
   };
 }
