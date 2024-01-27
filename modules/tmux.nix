@@ -59,17 +59,10 @@
 
         # Open scratch terminal to be able to perform a quick edit
         bind-key S display-popup -d "#{pane_current_path}" -h 75% -w 75% -E
-
-        # Open gitui to be able to perform ui work with git
         bind-key g display-popup -d "#{pane_current_path}" -h 75% -w 75% -E "gitui"
-
-        # Open k9s to be able to perform file system operations
         bind-key T display-popup -d "#{pane_current_path}" -h 75% -w 75% -E "k9s"
+        bind-key N display-popup -d "#{pane_current_path}" -h 75% -w 75% -E "${config.home.homeDirectory}/bin/agenda"
 
-        # Open k9s to be able to perform file system operations
-        bind-key N display-popup -d "#{pane_current_path}" -h 75% -w 75% -E "${pkgs.neovim}/bin/nvim ${config.home.homeDirectory}/Documents/todo.md"
-
-        bind-key K display-popup -d "#{pane_current_path}" -h 75% -w 75% -E "tmux-change-kubernetes-context"
         # Needed for Neovim to reload buffers on change
         set-option -g focus-events on
 
