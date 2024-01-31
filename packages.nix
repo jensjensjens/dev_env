@@ -19,6 +19,7 @@
     kubectl
     kubelogin
     kubernetes-helm
+    lazydocker
     lf
     meslo-lgs-nf
     nixfmt
