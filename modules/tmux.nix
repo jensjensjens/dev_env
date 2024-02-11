@@ -59,8 +59,8 @@
 
         # Open scratch terminal to be able to perform a quick edit
         bind-key S display-popup -d "#{pane_current_path}" -h 85% -w 85% -E # scratch pad
-        bind-key g display-popup -d "#{pane_current_path}" -h 85% -w 85% -E "gitui"
-        bind-key g display-popup -d "#{pane_current_path}" -h 85% -w 85% -E "joplin"
+        bind-key G display-popup -d "#{pane_current_path}" -h 85% -w 85% -E "gitui"
+        bind-key J display-popup -d "#{pane_current_path}" -h 85% -w 85% -E "joplin"
         bind-key T display-popup -d "#{pane_current_path}" -h 85% -w 85% -E "k9s"
         bind-key N display-popup -d "#{pane_current_path}" -h 85% -w 85% -E "${config.home.homeDirectory}/bin/agenda"
 
