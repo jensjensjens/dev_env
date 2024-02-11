@@ -33,7 +33,7 @@
             ./modules/neovim.nix
             ./modules/nix.nix
             ./modules/powershell.nix
-            ./modules/ssh.nix
+            #./modules/ssh.nix
             ./modules/starship.nix
             ./modules/tmux.nix 
             ./modules/virt-manager.nix
