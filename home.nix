@@ -12,15 +12,11 @@
             DOCKER_BUILDKIT = 1;
             MANPAGER = "page -t man";
             PAGER = "less";
-            PULUMI_SKIP_UPDATE_CHECK = "true";
         };
 
         sessionPath = [
           "$HOME/.local/bin"
         ];
-        shellAliases = {
-            watch = "${pkgs.viddy}/bin/viddy";
-        };
     };
 
     programs.home-manager.enable = true;

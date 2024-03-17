@@ -2,38 +2,52 @@
 
 {
   home.packages = with pkgs; [
+    atuin
     awscli2
+    bat
     cargo
     curl
     docker-credential-helpers
+    du-dust
     eksctl
+    eza
     fd
     fluxcd
     fx
+    fzf
     gcc
+    gh
+    git
     gitui
     go_1_21
     htop
     httpie
     jq
+    k9s
     kubectl
     kubelogin
     kubernetes-helm
     lazydocker
+    lazygit
     lf
     meslo-lgs-nf
+    neovim
     nixfmt
     nodejs
     packer
     page
     powershell
+    powershell
+    powertop
     python311
     python311Packages.pip
     ranger
     ripgrep
     slides
     sops
+    starship
     statix
+    tmux
     tree-sitter
     unzip
     viddy
@@ -42,5 +56,6 @@
     xplr
     yq
     zellij
+    zsh
   ];
 }

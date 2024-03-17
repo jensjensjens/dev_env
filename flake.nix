@@ -1,5 +1,5 @@
 {
-  description = "Home Manager configuration of jenss";
+  description = "Nix flake for jenss";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -19,25 +19,7 @@
         modules = [ 
             ./home.nix
             ./packages.nix 
-
-            ./modules/alacritty.nix 
-            ./modules/bat.nix
-            ./modules/bin.nix
-            ./modules/editorconfig.nix
-            ./modules/eza.nix
-            ./modules/fzf.nix
-            ./modules/gh.nix
-            ./modules/git.nix 
-            ./modules/gitui.nix
-            ./modules/k9s.nix
-            ./modules/neovim.nix
-            ./modules/nix.nix
-            ./modules/powershell.nix
-            #./modules/ssh.nix
-            ./modules/starship.nix
-            ./modules/tmux.nix 
             ./modules/virt-manager.nix
-            ./modules/zsh.nix 
         ];
       };
     };
