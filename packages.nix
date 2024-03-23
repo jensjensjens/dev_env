@@ -7,7 +7,7 @@
     bat
     cargo
     curl
-    docker-credential-helpers
+    delta
     du-dust
     eksctl
     eza
@@ -36,7 +36,7 @@
     nodejs
     packer
     page
-    powershell
+    podman
     powershell
     powertop
     python311
@@ -54,6 +54,7 @@
     wget
     wl-clipboard
     xplr
+    yamllint
     yq
     zellij
     zsh
