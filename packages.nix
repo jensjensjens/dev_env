@@ -9,6 +9,7 @@
     curl
     delta
     du-dust
+    eclint
     eksctl
     eza
     fd
@@ -39,6 +40,7 @@
     podman
     powershell
     powertop
+    pre-commit
     python311
     python311Packages.pip
     ranger
