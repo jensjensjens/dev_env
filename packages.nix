@@ -2,63 +2,71 @@
 
 {
   home.packages = with pkgs; [
+    apacheHttpd
     atuin
+    aws-sam-cli
     awscli2
     bat
+    carapace
     cargo
+    charm-freeze
+    cheat
     curl
     delta
     du-dust
-    eclint
-    eksctl
     eza
     fd
     fluxcd
-    fx
     fzf
     gcc
     gh
     git
     gitui
-    go_1_21
+    glow
+    go
     htop
     httpie
     jq
     k9s
+    kanata
+    kubeconform
     kubectl
-    kubelogin
     kubernetes-helm
-    lazydocker
-    lazygit
-    lf
-    meslo-lgs-nf
+    kubescape
+    kustomize
     neovim
-    nixfmt
+    nodePackages.prettier
     nodejs
     packer
     page
-    podman
+    pipx
     powershell
     powertop
     pre-commit
-    python311
-    python311Packages.pip
+    python312
+    python312Packages.black
+    python312Packages.cfn-lint
+    python312Packages.pip
+    python312Packages.pylint
+    python312Packages.pyyaml
     ranger
     ripgrep
     slides
     sops
     starship
-    statix
     tmux
     tree-sitter
     unzip
     viddy
+    vifm
     wget
+    wishlist
     wl-clipboard
-    xplr
+    xautomation
+    xbindkeys-config
+    xdotool
     yamllint
     yq
-    zellij
     zsh
   ];
 }
